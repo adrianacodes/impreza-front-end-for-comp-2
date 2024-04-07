@@ -41,8 +41,6 @@ const Header = () => {
         <li>
           <Link
             to="/how-to-buy"
-            target="_blank"
-            rel="noopener noreferrer"
             className={`items-center px-2 py-2 text-blue-600 hover:text-blue-800 ${location.pathname === "/how-to-buy" ? "underline-black" : ""}`}
             >
             How to buy?

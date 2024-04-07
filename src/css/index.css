@@ -8,6 +8,14 @@
 @layer components {
   .underline-black {
     border-bottom-width: 2px;
-    border-bottom-color: rgb(29, 29, 29);
+    border-bottom-color: rgb(30 64 175);
   }
+}
+
+.icon-text {
+  font-weight: 700; /* Adjust font weight to make the text slightly thicker */
+}
+
+.icon-container:hover .icon-text {
+  color: rgb(29 78 216); /* Change text color to blue (#3B82F6) when hovering over the icon container */
 }
