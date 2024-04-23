@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { FormEvent } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import backgroundImage from "/images/fluffy-clouds-sky-vertical-shot.jpg";
+import { submitFormData } from "../services/contactusapi.js"; // Import the service function
 
 const AboutPage = () => {
   const [formData, setFormData] = useState({
@@ -10,38 +10,24 @@ const AboutPage = () => {
     message: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const [result, setResult] = useState("");
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: {
+    preventDefault: () => void;
+    currentTarget: { reset: () => void };
+  }) => {
     event.preventDefault();
     setResult("Sending....");
-    const formData = new FormData(event.currentTarget);
-
-    formData.append("access_key", '9b26ec27-e320-426d-934c-02a8e192196e');
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
+    const success = await submitFormData(formData);
+    if (success) {
       setResult("Form Submitted Successfully");
-      if (event.currentTarget) {
-        event.currentTarget.reset(); // Check if event.currentTarget is not null
-      } else {
-        console.error("Form element not found");
-      }
+      event.currentTarget.reset(); // Reset form if submission was successful
     } else {
-      console.log("Error", data);
-      setResult(data.message);
+      setResult("An error occurred. Please try again.");
     }
     console.log(result);
   };
