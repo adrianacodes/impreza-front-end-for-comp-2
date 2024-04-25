@@ -35,7 +35,7 @@ const Header = () => {
             className={`items-center px-2 py-2 text-blue-600 hover:text-blue-800 ${location.pathname === "/shop" ? "underline-black" : ""}`}
           
           >
-            Shop
+            Gallery
           </Link>
         </li>
         <li>
@@ -58,8 +58,8 @@ const Header = () => {
       </ul>
 
       <div className="flex justify-center sm:justify-end sm:items-center sm:w-1/4 w-full text-center mr-5">
-        <Link to="/signup" className="btn btn-primary">
-          My Store
+        <Link to="/about" className="btn btn-primary">
+          Contact Us
         </Link>
       </div>
     </header>
