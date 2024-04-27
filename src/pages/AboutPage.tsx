@@ -10,6 +10,9 @@ const AboutPage = () => {
     message: "",
   });
 
+
+
+  
   const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
