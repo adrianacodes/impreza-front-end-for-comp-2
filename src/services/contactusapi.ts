@@ -18,7 +18,7 @@ const apiUrl = hasConfigurations(window) ? window.configs.apiUrl : "/";
 
 export async function submitFormData(formData: FormData): Promise<boolean> {
   // Here we use the `apiUrl` obtained through the type guard above
-  const endpoint = `${apiUrl}`;
+  const endpoint = `${apiUrl}/impreza-back-end/simple-image-and-form-submission-api-197/v1.0`;
 
   try {
     const response = await fetch(endpoint, {
