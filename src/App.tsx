@@ -11,6 +11,7 @@ import HowToBuy from "../src/pages/HowToBuy.tsx";
 import NotFoundPage from "../src/pages/NotFoundPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 function App() {
   return (
     <Router>

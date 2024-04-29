@@ -1,6 +1,8 @@
 import Header from "../components/Header";
 import { Carousel } from "react-bootstrap";
 import "../App.css";
+import Footer from "../components/Footer"; // Ensure the path is correct based on your project structure
+
 
 const homePage = () => {
   return (
@@ -302,8 +304,10 @@ const homePage = () => {
           <a target="_blank" href="https://icons8.com">
             Icons8
           </a>
+          <Footer></Footer>
         </div>
       </footer>
+
     </>
   );
 };
